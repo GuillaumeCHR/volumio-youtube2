@@ -1,0 +1,10 @@
+{
+  "YOUTUBE2_MIX_FROM_CURRENT": "Mix de « {} »",
+  "YOUTUBE2_MIX_NO_CURRENT": "Mix de la piste en cours (aucune piste YouTube)",
+  "YOUTUBE2_MIX_TRACKS": "{} titres",
+  "YOUTUBE2_MIX_SAVE": "Enregistrer comme playlist « {} »",
+  "YOUTUBE2_MIX_SAVED": "{} titres ajoutés à la playlist « {} » ({} déjà présents)",
+  "YOUTUBE2_ERR_MIX_NO_CURRENT": "Aucune piste YouTube en cours",
+  "YOUTUBE2_ERR_MIX_NOT_FOUND": "Aucun Mix trouvé pour cette vidéo",
+  "YOUTUBE2_ERR_MIX_SAVE": "Impossible d'enregistrer la playlist « {} »"
+}
