@@ -103,6 +103,15 @@ export default class GenericViewHandler<V extends Omit<GenericView, 'name'> & { 
       targetWatchEndpoint = endpoint;
     }
 
+    /* volumio-pilot: single-video explode */
+    if (!targetWatchEndpoint && EndpointHelper.isType(endpoint, EndpointType.Watch) && endpoint.payload?.videoId) {
+      // Single video without playlistId (e.g. channel page items): play just that video
+      const videoInfo = await this.getModel(ModelType.Video).getPlaybackInfo(endpoint.payload.videoId, false, true);
+      if (videoInfo) {
+        return ExplodeHelper.getExplodedTrackInfoFromVideo({ ...videoInfo, endpoint } as any);
+      }
+    }
+
     if (!targetWatchEndpoint) {
       yt2.toast('error', yt2.getI18n('YOUTUBE2_ERR_NO_PLAYABLE_ITEMS_FOUND'));
       throw Error('No playable items found');

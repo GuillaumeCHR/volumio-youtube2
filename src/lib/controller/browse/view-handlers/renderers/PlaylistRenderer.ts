@@ -54,7 +54,8 @@ export default class PlaylistRenderer extends BaseRenderer<ContentItem.Playlist,
     return {
       service: 'youtube2',
       type: 'playlist',
-      uri: `youtube2/${ViewHelper.constructUriSegmentFromView(targetView)}`,
+      /* volumio-pilot: playlist header uri */
+      uri: data.endpoint ? `youtube2/${ViewHelper.constructUriSegmentFromView(targetView)}` : this.uri,
       title: data.title,
       artist: data.author?.name,
       duration: data.subtitles?.join(' • '),

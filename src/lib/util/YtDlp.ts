@@ -7,6 +7,8 @@ function createYtDlpInstance() {
   return new YtDlp({
     workingDir: WD,
     cookies: yt2.getConfigValue('cookie'),
+    /* volumio-pilot: yt-dlp node22 */
+    jsRuntime: require('fs').existsSync('/data/opt/node-v22.23.3-linux-armv7l/bin/node') ? 'node:/data/opt/node-v22.23.3-linux-armv7l/bin/node' : undefined,
     logger: {
       info: (msg) => yt2.getLogger().info(`[youtube2] [yt-dlp] ${msg}`),
       warn: (msg) => yt2.getLogger().warn(`[youtube2] [yt-dlp] ${msg}`),

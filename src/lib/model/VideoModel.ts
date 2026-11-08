@@ -192,6 +192,11 @@ export default class VideoModel extends BaseModel {
         }
       };
 
+      /* volumio-pilot: metadata next client */
+      if (skipStream === true && !result.title && availableClients.indexOf(client as any) < availableClients.length - 1) {
+        return await __tryNextClientOnError(new Error(info.playability_status?.reason || 'No video details'), info);
+      }
+
       if (skipStream === true) {
         return result;
       }
